@@ -75,6 +75,7 @@
   {@param steps: list<string>}
   {@param urlLabels: list<string>}
   {@param urlVals: list<string>}
+  {@param timeleft: int}
   {@param? feedback: string}
   <div class="urls">
     <h4>Lab URLs:</h4>
@@ -83,7 +84,9 @@
         <dt>{$urlLabels[$i]}</dt><dd><a target="_blank" href="{$urlVals[$i]}">{$urlVals[$i]}</a></dd>
       {/for}
     </dl>
-    <span>Instance valid for <strong>14</strong> minutes.</span>
+    {if $timeleft}
+      <span>Instance valid for <strong>14</strong> minutes.</span>
+    {/if}
   </div>
   <div class="steps">
     <ol>
