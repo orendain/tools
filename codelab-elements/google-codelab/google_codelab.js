@@ -756,11 +756,11 @@ class Codelab extends HTMLElement {
     return [urlLabels, urlVals, timeleft];
 
     // Example encoded values:
-    //"Jupyter%20URL:"
+    //"labJupyter%20URL:"
     //"http://ec2-34-217-80-156.us-west-2.compute.amazonaws.com:8888"
 
     // Append to URL for testing:
-    // &Jupyter URL:=http://ec2-34-217-80-156.us-west-2.compute.amazonaws.com:8888
+    // &labJupyter URL:=http://ec2-34-217-80-156.us-west-2.compute.amazonaws.com:8888&timeleft=5
   }
 
   /**
