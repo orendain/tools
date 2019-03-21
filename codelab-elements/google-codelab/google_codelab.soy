@@ -78,12 +78,14 @@
   {@param timeleft: int}
   {@param? feedback: string}
   <div class="urls">
-    <h4>Lab URLs:</h4>
-    <dl>
-      {for $i in range(length($urlLabels))}
-        <dt>{$urlLabels[$i]}</dt><dd><a target="_blank" href="{$urlVals[$i]}">{$urlVals[$i]}</a></dd>
-      {/for}
-    </dl>
+    {if length($urlLabels) > 0}
+      <h4>Lab URLs:</h4>
+      <dl>
+        {for $i in range(length($urlLabels))}
+          <dt>{$urlLabels[$i]}</dt><dd><a target="_blank" href="{$urlVals[$i]}">{$urlVals[$i]}</a></dd>
+        {/for}
+      </dl>
+    {/if}
     {if $timeleft}
       <span>Instance valid for <strong>{$timeleft}</strong> minutes.</span>
     {/if}
