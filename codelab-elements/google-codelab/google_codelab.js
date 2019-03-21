@@ -715,7 +715,6 @@ class Codelab extends HTMLElement {
         }
         if (i === selected) {
           step.setAttribute(SELECTED_ATTR, '');
-          step.scrollIntoViewIfNeeded();
         } else {
           step.removeAttribute(SELECTED_ATTR);
         }
