@@ -504,8 +504,6 @@ class Codelab extends HTMLElement {
       if (target.tagName.toUpperCase() === 'A') {
         break;
       }
-
-      // Only prevent default and stop propagation if the target is not an A-tag
       e.preventDefault();
       e.stopPropagation();
 
