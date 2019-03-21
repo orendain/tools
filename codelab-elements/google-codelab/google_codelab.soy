@@ -73,7 +73,18 @@
  */
 {template .drawer}
   {@param steps: list<string>}
+  {@param urls: list<string>}
+  {@param urlVals: list<string>}
   {@param? feedback: string}
+  <div class="urls">
+    <h4>Lab URLs:</h4>
+    <dl>
+      {for $i in range(length($urls))}
+        <dt>{$urls[$i]}</dt><dd><a target="_blank" href="{$urlVals[$i]}">{$urlVals[$i]}</a></dd>
+      {/for}
+    </dl>
+    <span>Instance valid for <strong>14</strong> more minutes.</span>
+  </div>
   <div class="steps">
     <ol>
       {for $step in $steps}

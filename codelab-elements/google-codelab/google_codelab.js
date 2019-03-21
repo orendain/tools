@@ -27,6 +27,8 @@ const dom = goog.require('goog.dom');
 const events = goog.require('goog.events');
 const soy = goog.require('goog.soy');
 
+const urlParams = new URLSearchParams(window.location.search);
+
 /**
  * Deprecated. Title causes the bowser to display a tooltip over the whole codelab.
  * Use codelab-title instead.
@@ -709,9 +711,15 @@ class Codelab extends HTMLElement {
    * @private
    */
   renderDrawer_() {
+    console.log(urlParams);
+    /** @suppress {missingProperties} */
+    const urls = Array.from(urlParams.keys());
+    /** @suppress {missingProperties} */
+    const urlVals = Array.from(urlParams.values());
+    console.log(urls);
     const feedback = this.getAttribute(FEEDBACK_LINK_ATTR);
     const steps = this.steps_.map((step) => step.getAttribute(LABEL_ATTR));
-    soy.renderElement(this.drawer_, Templates.drawer, {steps, feedback});
+    soy.renderElement(this.drawer_, Templates.drawer, {steps, urls, urlVals, feedback});
   }
 
   /**
