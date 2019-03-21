@@ -769,7 +769,7 @@ class Codelab extends HTMLElement {
 
     // Every 60k milliseconds (1min), decrement timeleft and update the display
     setInterval(function () {
-      timeLeftEl.textContent = --timeleft;
+      ((--timeleft < 0) ? timeleft = 0 : timeLeftEl.textContent = timeleft);
     }, 60000);
   }
 
