@@ -722,9 +722,12 @@ class Codelab extends HTMLElement {
 
       urlLabels.push(decodeURI(k));
       urlVals.push(decodeURI(v));
-      //urls.set(k, decodeURI(v));
     }
     return [urlLabels, urlVals];
+
+    // Example encoded values:
+    //"Jupyter%20URL:"
+    //"http://ec2-34-217-80-156.us-west-2.compute.amazonaws.com:8888"
   }
 
   /**
@@ -732,15 +735,8 @@ class Codelab extends HTMLElement {
    */
   renderDrawer_() {
     const urls = this.readLabParams_();
-    var urlLabels = urls[0];
-    var urlVals = urls[1];
-    console.log(urlLabels);
-    console.log(urlVals);
-    //console.log(urlParams);
-    /** @suppress {missingProperties} */
-    //const urlLabels = Array.from(urls2.keys());
-    /** @suppress {missingProperties} */
-    //const urlVals = Array.from(urlParams.values());
+    const urlLabels = urls[0];
+    const urlVals = urls[1];
     const feedback = this.getAttribute(FEEDBACK_LINK_ATTR);
     const steps = this.steps_.map((step) => step.getAttribute(LABEL_ATTR));
     soy.renderElement(this.drawer_, Templates.drawer, {steps, urlLabels, urlVals, feedback});
