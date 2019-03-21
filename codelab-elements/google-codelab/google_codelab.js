@@ -751,7 +751,6 @@ class Codelab extends HTMLElement {
       else if (key === "timeleft") {
         timeleft = decodeURI(v);
       }
-      console.log(decodeURI(v));
     }
     return [urlLabels, urlVals, timeleft];
 
