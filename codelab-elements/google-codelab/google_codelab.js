@@ -762,6 +762,20 @@ class Codelab extends HTMLElement {
   /**
    * @private
    */
+  updateTimeLeft_() {
+    // Find the timeleft element and find the number of minutes left
+    const timeLeftEl = this.titleContainer_.querySelector('#timeleft');
+    var timeleft = timeLeftEl.textContent();
+
+    // Every 60k milliseconds (1min), decrement timeleft and update the display
+    setInterval(function () {
+      timeLeftEl.textContent(--timeleft);
+    }, 60000);
+  }
+
+  /**
+   * @private
+   */
   renderDrawer_() {
     const params = this.readLabParams_();
     const urlLabels = params[0];
