@@ -490,14 +490,17 @@ class Codelab extends HTMLElement {
    * @private
    */
   handleDrawerClick_(e) {
-    e.preventDefault();
-    e.stopPropagation();
     let target = /** @type {!Element} */ (e.target);
 
     while (target !== this.drawer_) {
       if (target.tagName.toUpperCase() === 'A') {
         break;
       }
+
+      // Only prevent default and stop propagation if the target is not an A-tag
+      e.preventDefault();
+      e.stopPropagation();
+
       target = /** @type {!Element} */ (target.parentNode);
     }
 
@@ -728,6 +731,9 @@ class Codelab extends HTMLElement {
     // Example encoded values:
     //"Jupyter%20URL:"
     //"http://ec2-34-217-80-156.us-west-2.compute.amazonaws.com:8888"
+
+    // Append to URL for testing:
+    // &Jupyter URL:=http://ec2-34-217-80-156.us-west-2.compute.amazonaws.com:8888
   }
 
   /**
