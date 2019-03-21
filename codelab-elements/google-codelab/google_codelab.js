@@ -709,14 +709,33 @@ class Codelab extends HTMLElement {
 
   /**
    * @private
+   * * @return {!Map<string,string>}
+   */
+  readLabParams_() {
+    /** @suppress {missingProperties} */
+    var entries = urlParams.entries();
+    var urls = new Map();
+    for (var [k, v] of entries) {
+      console.log(k);
+      console.log(decodeURI(v));
+      urls.set(k, decodeURI(v));
+    }
+    //var decoded = urlParams.entries()((k,v) => decodeURI(v));
+    //console.log(decoded);
+    return urls;
+  }
+
+  /**
+   * @private
    */
   renderDrawer_() {
-    console.log(urlParams);
+    const urls2 = this.readLabParams_();
+    console.log(urls2);
+    //console.log(urlParams);
     /** @suppress {missingProperties} */
     const urls = Array.from(urlParams.keys());
     /** @suppress {missingProperties} */
     const urlVals = Array.from(urlParams.values());
-    console.log(urls);
     const feedback = this.getAttribute(FEEDBACK_LINK_ATTR);
     const steps = this.steps_.map((step) => step.getAttribute(LABEL_ATTR));
     soy.renderElement(this.drawer_, Templates.drawer, {steps, urls, urlVals, feedback});
