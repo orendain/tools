@@ -28,6 +28,10 @@ google-codelab #drawer {
 
 google-codelab #drawer .urls {
   padding: 16px 12px;
+
+  dd {
+    margin: 0;
+  }
 }
 
 google-codelab #drawer .steps {
