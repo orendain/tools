@@ -764,12 +764,12 @@ class Codelab extends HTMLElement {
    */
   beginTimeLeftCountdown() {
     // Find the timeleft element and find the number of minutes left
-    const timeLeftEl = this.titleContainer_.querySelector('#timeleft');
-    var timeleft = timeLeftEl.textContent();
+    const timeLeftEl = this.querySelector('#timeleft');
+    var timeleft = Number(timeLeftEl.textContent);
 
     // Every 60k milliseconds (1min), decrement timeleft and update the display
     setInterval(function () {
-      timeLeftEl.textContent(--timeleft);
+      timeLeftEl.textContent = --timeleft;
     }, 60000);
   }
 
