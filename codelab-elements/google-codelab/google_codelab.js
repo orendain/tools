@@ -762,7 +762,7 @@ class Codelab extends HTMLElement {
   /**
    * @private
    */
-  updateTimeLeft_() {
+  beginTimeLeftCountdown() {
     // Find the timeleft element and find the number of minutes left
     const timeLeftEl = this.titleContainer_.querySelector('#timeleft');
     var timeleft = timeLeftEl.textContent();
@@ -784,6 +784,9 @@ class Codelab extends HTMLElement {
     const feedback = this.getAttribute(FEEDBACK_LINK_ATTR);
     const steps = this.steps_.map((step) => step.getAttribute(LABEL_ATTR));
     soy.renderElement(this.drawer_, Templates.drawer, {steps, urlLabels, urlVals, timeleft, feedback});
+
+    // Begin countdown of timeleft for the instance
+    this.beginTimeLeftCountdown();
   }
 
   /**
