@@ -733,12 +733,12 @@ class Codelab extends HTMLElement {
     console.log(urls2);
     //console.log(urlParams);
     /** @suppress {missingProperties} */
-    const urls = Array.from(urlParams.keys());
+    const urlLabels = Array.from(urlParams.keys());
     /** @suppress {missingProperties} */
     const urlVals = Array.from(urlParams.values());
     const feedback = this.getAttribute(FEEDBACK_LINK_ATTR);
     const steps = this.steps_.map((step) => step.getAttribute(LABEL_ATTR));
-    soy.renderElement(this.drawer_, Templates.drawer, {steps, urls, urlVals, feedback});
+    soy.renderElement(this.drawer_, Templates.drawer, {steps, urlLabels, urlVals, feedback});
   }
 
   /**
