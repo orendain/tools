@@ -709,33 +709,38 @@ class Codelab extends HTMLElement {
 
   /**
    * @private
-   * * @return {!Map<string,string>}
+   * @return {!Array<!Array<string>>}
    */
   readLabParams_() {
     /** @suppress {missingProperties} */
-    var entries = urlParams.entries();
-    var urls = new Map();
+    const entries = urlParams.entries();
+    var urlLabels = [];
+    var urlVals = [];
     for (var [k, v] of entries) {
-      console.log(k);
+      console.log(decodeURI(k));
       console.log(decodeURI(v));
-      urls.set(k, decodeURI(v));
+
+      urlLabels.push(decodeURI(k));
+      urlVals.push(decodeURI(v));
+      //urls.set(k, decodeURI(v));
     }
-    //var decoded = urlParams.entries()((k,v) => decodeURI(v));
-    //console.log(decoded);
-    return urls;
+    return [urlLabels, urlVals];
   }
 
   /**
    * @private
    */
   renderDrawer_() {
-    const urls2 = this.readLabParams_();
-    console.log(urls2);
+    const urls = this.readLabParams_();
+    var urlLabels = urls[0];
+    var urlVals = urls[1];
+    console.log(urlLabels);
+    console.log(urlVals);
     //console.log(urlParams);
     /** @suppress {missingProperties} */
-    const urlLabels = Array.from(urlParams.keys());
+    //const urlLabels = Array.from(urls2.keys());
     /** @suppress {missingProperties} */
-    const urlVals = Array.from(urlParams.values());
+    //const urlVals = Array.from(urlParams.values());
     const feedback = this.getAttribute(FEEDBACK_LINK_ATTR);
     const steps = this.steps_.map((step) => step.getAttribute(LABEL_ATTR));
     soy.renderElement(this.drawer_, Templates.drawer, {steps, urlLabels, urlVals, feedback});
