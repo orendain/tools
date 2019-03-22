@@ -266,7 +266,8 @@ func onlyImages(nodes ...types.Node) bool {
 			return false
 		}
 	}
-	return true
+	//return true
+	return false
 }
 
 func (hw *htmlWriter) itemsList(n *types.ItemsListNode) {
