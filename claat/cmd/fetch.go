@@ -123,7 +123,7 @@ func slurpFragment(url, authToken string) ([]types.Node, error) {
 // fetch retrieves codelab doc either from local disk
 // or a remote location.
 // The caller is responsible for closing returned stream.
-func fetch(name, authToken string) (*resource, error) {
+func Fetch(name, authToken string) (*resource, error) {
 	fi, err := os.Stat(name)
 	if os.IsNotExist(err) {
 		return fetchRemote(name, authToken, false)
